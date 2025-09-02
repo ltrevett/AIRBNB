@@ -12,3 +12,13 @@ sources:
 
       - name: reviews
         identifier: raw_reviews
+        loaded_at_field: date
+        freshness: 
+          error_after:
+            count: 2
+            period: day
+          warn_after:
+            count: 1
+            period: day
+
+        

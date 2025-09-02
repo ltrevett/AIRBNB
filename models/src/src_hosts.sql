@@ -8,7 +8,7 @@ with raw_hosts as
         created_at,
         updated_at
 
-    from AIRBNB.RAW.RAW_HOSTS
+    from {{ source('airbnb','hosts') }}
 )
 
 select * from raw_hosts

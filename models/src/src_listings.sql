@@ -12,7 +12,7 @@ with raw_listings as
         created_at,
         updated_at
 
-    from AIRBNB.RAW.RAW_LISTINGS
+    from {{ source('airbnb','listings') }}
 )
 
 select * from raw_listings

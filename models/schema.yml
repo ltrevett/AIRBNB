@@ -5,11 +5,13 @@ models:
     columns:
     
     - name: listing_id
+      description: Primary key for the listing
       tests:
         - unique
         - not_null
  
     - name: host_id
+      description: The host's id. References the host table
       tests:
         - not_null
         - relationships:
@@ -17,9 +19,14 @@ models:
             field: host_id
  
     - name: room_type
+      description: Type of the room/apartment 
       tests:
         - accepted_values:
             values: ['Entire home/apt',
                      'Private room',
                      'Shared room',
                      'Hotel room']
+                    
+    - name: minimum_nights
+      tests:
+        - positive_values

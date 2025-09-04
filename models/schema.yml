@@ -2,8 +2,8 @@ version: 2
 
 models:
   - name: dim_listings_cleansed
+
     columns:
-    
     - name: listing_id
       description: Primary key for the listing
       tests:
@@ -30,3 +30,31 @@ models:
     - name: minimum_nights
       tests:
         - positive_values
+
+  - name: dim_hosts_cleansed
+    description: Cleansed table for host data
+
+    columns:
+    - name: host_id
+      description: Primary key for the host
+      tests:
+        - not_null
+        - unique
+ 
+    - name: host_name
+      description: The host's name
+      tests:
+        - not_null
+ 
+    - name: is_superhost
+      description: Whether the host is a superhost (t for True, f for False)
+      tests:
+        - accepted_values:
+            values: ['t', 'f']
+
+    - name: created_at
+      description: Date record created
+
+    - name: updated_at
+      description: Last date the record was updated
+                  

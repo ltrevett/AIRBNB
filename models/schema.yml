@@ -58,3 +58,18 @@ models:
     - name: updated_at
       description: Last date the record was updated
                   
+exposures:
+
+  - name: high_value_hosts_dash
+    type: dashboard
+    maturity: high
+    url: https://bi.tool/dashboards/1
+    description: >
+      Dashboard set up to see hosts with the most listings
+
+    depends_on:
+      - ref('high_value_hosts')
+
+    owner:
+      name: Lucas
+      email: data@airbnb.com
